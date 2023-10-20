@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   Image,
   Pressable,
@@ -19,6 +19,16 @@ import IconUpvoteInactive from '../assets/upvote_inactive.png';
 
 function FeedScreen() {
   const navigation = useNavigation();
+
+  // Sample long text
+  const longText =
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus in ipsum ac dictum. Integer et nunc ut tellus tinci, consectetur adipiscing elit. Nulla luctus in ipsum ac dictum. Integer et nunc ut tellus tinci, consectetur adipiscing elit. Nulla luctus in ipsum ac dictum. Integer et nunc ut tellus tinci Nulla luctus in ipsum ac dictum. Integer et nunc ut tellus tinci, consectetur adipiscing elit. Nulla luctus in ipsum ac dictum.';
+
+  const [showMore, setShowMore] = useState(false);
+
+  const toggleShowMore = () => {
+    setShowMore(!showMore);
+  };
 
   return (
     <SafeAreaView>
@@ -52,14 +62,12 @@ function FeedScreen() {
             <View style={{height: 0.5, backgroundColor: '#C4C4C4'}} />
             <View>
               <Text style={{margin: 24}}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-                luctus in ipsum ac dictum. Integer et nunc ut tellus tinci,
-                consectetur adipiscing elit. Nulla luctus in ipsum ac dictum.
-                Integer et nunc ut tellus tinci, consectetur adipiscing elit.
-                Nulla luctus in ipsum ac dictum. Integer et nunc ut tellus tinci
-                Nulla luctus in ipsum ac dictum. Integer et nunc ut tellus
-                tinci, consectetur adipiscing elit. Nulla luctus in ipsum ac
-                dictum.
+                {showMore ? longText : longText.slice(0, 200)}{' '}
+                {longText.length > 200 && (
+                  <Text style={{color: 'blue'}} onPress={toggleShowMore}>
+                    {showMore ? ' Less' : '...more'}
+                  </Text>
+                )}
               </Text>
               <Image
                 source={{
@@ -170,14 +178,12 @@ function FeedScreen() {
             <View style={{height: 0.5, backgroundColor: '#C4C4C4'}} />
             <View>
               <Text style={{margin: 24}}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-                luctus in ipsum ac dictum. Integer et nunc ut tellus tinci,
-                consectetur adipiscing elit. Nulla luctus in ipsum ac dictum.
-                Integer et nunc ut tellus tinci, consectetur adipiscing elit.
-                Nulla luctus in ipsum ac dictum. Integer et nunc ut tellus tinci
-                Nulla luctus in ipsum ac dictum. Integer et nunc ut tellus
-                tinci, consectetur adipiscing elit. Nulla luctus in ipsum ac
-                dictum.
+                {showMore ? longText : longText.slice(0, 200)}{' '}
+                {longText.length > 200 && (
+                  <Text style={{color: 'blue'}} onPress={toggleShowMore}>
+                    {showMore ? ' Less' : '...more'}
+                  </Text>
+                )}
               </Text>
               <Image
                 source={{
@@ -288,14 +294,12 @@ function FeedScreen() {
             <View style={{height: 0.5, backgroundColor: '#C4C4C4'}} />
             <View>
               <Text style={{margin: 24}}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-                luctus in ipsum ac dictum. Integer et nunc ut tellus tinci,
-                consectetur adipiscing elit. Nulla luctus in ipsum ac dictum.
-                Integer et nunc ut tellus tinci, consectetur adipiscing elit.
-                Nulla luctus in ipsum ac dictum. Integer et nunc ut tellus tinci
-                Nulla luctus in ipsum ac dictum. Integer et nunc ut tellus
-                tinci, consectetur adipiscing elit. Nulla luctus in ipsum ac
-                dictum.
+                {showMore ? longText : longText.slice(0, 200)}{' '}
+                {longText.length > 200 && (
+                  <Text style={{color: 'blue'}} onPress={toggleShowMore}>
+                    {showMore ? ' Less' : '...more'}
+                  </Text>
+                )}
               </Text>
               <Image
                 source={{
